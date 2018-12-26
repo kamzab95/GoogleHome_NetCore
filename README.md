@@ -1,4 +1,4 @@
-# GoogleHome_NetCore
+# Google Home .Net Core, Authentication and SYNC - Creating IoT
 
 ## Description
 
