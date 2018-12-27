@@ -50,11 +50,14 @@ namespace ClientApp._GoogleHome{
         }
 
         public static QueryResponse Query(GoogleQueryRequest request){
+
+            var devices_query = request.inputs[0].payload.devices;
             var devices_status = new Dictionary<string, dynamic>();
-            foreach(var device in devices){
-                devices_status.Add(device.id, new {
-                        on = true,
-                        online = true
+            foreach(var dev_query in devices_query){
+                var dev_obj = GetDeviceById(dev_query.id);
+                devices_status.Add(dev_obj.id, new {
+                        on = dev_obj.on,
+                        online = dev_obj.online
                 });
             }
     
