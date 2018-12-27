@@ -62,27 +62,5 @@ namespace ClientApp.Controllers
 
             return View("Error", vm);
         }
-
-        
-        // [HttpPost("test")]
-        // //[Authorize]
-        // public IActionResult Test([FromBody] dynamic data)
-        // {
-        //     var dtjs = JsonConvert.SerializeObject(data);
-        //     Console.WriteLine("------------------------------------- ");
-        //     Console.WriteLine("google data: ");
-        //     Console.WriteLine(dtjs);
-        //     Console.WriteLine("------------------------------------- ");
-        //     var response = new SyncResponse{
-        //         requestId = data["requestId"],
-        //         payload = new Payload{
-        //             agentUserId = "123.123",
-        //             devices = new List<Device>{GetDevice1()}
-        //         }
-        //     };
-        //     Console.WriteLine("sync response " + JsonConvert.SerializeObject(response));
-        //     return new JsonResult(response);
-        // }
-
     }
 }
