@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Net;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
@@ -19,6 +20,15 @@ namespace ClientApp
 
         public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
             WebHost.CreateDefaultBuilder(args)
-                .UseStartup<Startup>();
+            .UseKestrel(options =>
+            {
+                options.Listen(IPAddress.Any, 5002); //IPAddress.Loopback, 6000);  // http:localhost:5000
+                options.Listen(IPAddress.Any, 5003, listenOptions =>
+                {
+                    listenOptions.UseHttps("https/certificate.pfx", "password");
+                });
+            })
+            .UseSetting("https_port", "443")
+            .UseStartup<Startup>();
     }
 }

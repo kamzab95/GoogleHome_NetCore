@@ -54,7 +54,7 @@ namespace ClientApp
                 {
                     options.SignInScheme = "Cookies";
 
-                    options.Authority = "http://localhost:5002";
+                    options.Authority = "https://localhost:5003";
                     //options.Authority = "https://8c6e3590.ngrok.io";
                     options.RequireHttpsMetadata = false;
 
@@ -76,7 +76,7 @@ namespace ClientApp
                 app.UseHsts();
             }
 
-            //app.UseHttpsRedirection();
+            app.UseHttpsRedirection();
             app.UseAuthentication();
             app.UseIdentityServer();
 

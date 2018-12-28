@@ -13,4 +13,5 @@ RUN dotnet publish -c Release -o out
 FROM microsoft/dotnet:aspnetcore-runtime
 WORKDIR /app
 COPY --from=build-env /app/out .
+COPY ./https ./https
 ENTRYPOINT ["dotnet", "ClientApp.dll"]
